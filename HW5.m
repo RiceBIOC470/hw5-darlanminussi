@@ -116,7 +116,7 @@ imshow(data_unc_p2, []);
 
 % As we can see from the image above. If we are more aggressive to use
 % ilastik to separate cells that are touching, the software does a much
-% better job at separating the nuclei as we can clearly see in data_seg_p2.
+% better job at separating the nuclei as we can clearly see in data_seg_p2, specially comparing the bottom left corner of part1 and part2.
 % However, some corners of the nuclei are missing because now all the area
 % of uncertainty is on the edges of the nuclei. Also, some nuclei present
 % holes in their composition.
@@ -126,7 +126,7 @@ imshow(data_unc_p2, []);
 data_seg_p2_mask = data_seg_p2 > 0.9;
 imshow(data_seg_p2_mask);
 
-data_seg_p2_dil = ~imopen(data_seg_p2_mask, strel('disk',3));
+data_seg_p2_dil = imopen(data_seg_p2_mask, strel('disk',3));
 imshow(data_seg_p2_dil);
 
 % a simple erosion followed by a dilation is enough to improve on the mask
