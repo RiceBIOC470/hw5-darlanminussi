@@ -1,4 +1,15 @@
 %HW5
+%GB comments
+1a 100
+1b 100
+1c 100
+1d 100
+2yeast: 70 output image is not a nuclear/cell mask but an edge mask. You need to tell your script that the cellular space is not the same as the background. 
+2worm: 100 invert the image
+2bacteria: 95 This is pretty good. Instead of using imdilate, you could have used imfill. It would have filled your holes while also not expanding the edges of the mask. When you dilated, several masks end up touching. Alternatively, you could have followed up with imerode to fix this issue. 
+2phase: 100 
+Overall: 96
+
 
 % Note. You can use the code readIlastikFile.m provided in the repository to read the output from
 % ilastik into MATLAB.
